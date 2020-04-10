@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FormList from './profilePageComponents/FormList';
-import CardPreview from './profilePageComponents/CardPreview';
+import FormList from './CardInfoComponents/FormList';
+import CardPreview from './CardPreviewComponents/CardPreview';
 
 class ProfilePageBody extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class ProfilePageBody extends React.Component {
   render() {
     return (
       <div id="profilePageBody" className="profilePageBody">
-        <CardPreview></CardPreview>
+        <CardPreview/>
         <FormList handleCollapse={this.handleCollapse} activePanel={this.state.activePanel}></FormList>
       </div>
     );

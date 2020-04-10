@@ -13,7 +13,7 @@ class ProfilePage extends React.Component {
           return (
               <div id="profilePage" className="profilePage">
                   <Header/>
-                  <ProfilePageBody></ProfilePageBody>
+                  <ProfilePageBody/>
                   <Footer/>
               </div>
           );
