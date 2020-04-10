@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Avatar from '../profilePageComponents/Avatar';
+import Avatar from '../CardInfoComponents/Avatar';
 
 class Fill extends React.Component{
     constructor(props){
