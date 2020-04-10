@@ -1,43 +1,6 @@
-$buttonFont: $mainText;
-$nameFont: $previewText;
-
-//ESTRUCTURA GENERAL ------------------------------------------------------------------
 .profilePage{
     height: 100vh;
     width: 100vw;
-    .profilePageBody{
-        height: calc(100vh - 170px);
-        overflow: scroll;
-        width: 100%;
-        background: linear-gradient(to bottom, #f5f5f5, #ffffff 11%);
-        @include forTablet{
-            padding: 20px 40px;
-            display: grid;
-            grid-template-columns: 329px 1fr;
-            grid-template-rows: 1fr;
-            grid-gap: 30px;
-            .grid-1{
-                background: transparent;
-                grid-column: 1/2;
-                grid-row: 1/2;
-            }
-            .grid-2{
-                grid-column: 2/3;
-                grid-row: 1/2;  
-                border-radius: 5px;  
-            }
-        }
-        @include forPc{
-        grid-template-columns: 30vw 1fr;
-        }        
-    }
-
-    .allPageFooter{
-        height: 60px;
-        width: 100vw;
-        background-color: #FFFFFF;
-        border-top: solid 1px $borderLineColor;
-    }
 }
 
 //ESTILOS FORMS BOX ------------------------------------------------------------------
@@ -45,7 +8,7 @@ $nameFont: $previewText;
     height: 100%;
     min-height: 457px;
     width: 100%;
-    /* border:1px solid black; */
+    border:1px solid black;
 
     .form {
         font-family: $mainText;
@@ -111,7 +74,7 @@ $nameFont: $previewText;
             background-color: transparent;
             border: 1px solid $whiteColor;
             border-radius: 15px;
-            font-family: $buttonFont;
+            font-family: $mainText;
             text-transform: uppercase;
             font-size: 12px;
             font-weight: 400;
@@ -133,7 +96,7 @@ $nameFont: $previewText;
                 padding-left: 15px;
                 margin-bottom: 10px;
                 .card__profileInfo--name{
-                    font-family: $nameFont;
+                    font-family: $previewText;
                     font-weight: 700;
                     font-size: 18px;
                     line-height: 20px;
@@ -141,7 +104,7 @@ $nameFont: $previewText;
                     margin-bottom: 2px;                
                 }
                 .card__profileInfo--job{
-                    font-family: $nameFont;
+                    font-family: $previewText;
                     font-weight: 400;
                     font-size: 16px;
                     color: $previewTextColor;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from './Header';
-import ProfilePageBody from './profilePageComponents/ProfilePageBody';
+import ProfilePageBody from './ProfilePageBody';
 import Footer from './Footer';
 
 

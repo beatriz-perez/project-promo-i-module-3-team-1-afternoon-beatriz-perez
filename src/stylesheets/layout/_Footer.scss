@@ -1,39 +1,41 @@
-@import './core/variables';
-@import './base/reset.scss';
-@import './core/mixins';
-
 .footer{
     height: 110px;
     width: 100vw;
+    padding-top: 16px;
+    padding-bottom: 20px;
     background-color: #FFFFFF;
     border-top: solid 1px $borderLineColor;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    
     @include forTablet{
+        padding: 0 40px 0 40px;
         height: 60px;
         flex-direction: row;
         justify-content: space-between;
     }
     .footer-copyright{
-        margin:auto;
         color: $footerColor;
-        font-size: 14px;
         font-family:$mainText;
+        font-size: 14px;
+        cursor: default;
         display: flex;
         flex-direction: row;
         align-items: center;
         img {
             width: 30px;
-            padding: 0 5px 0 0;
+            padding-right: 5px;
         }
     }
     .footer-logo-container{
-        margin:auto;
+        .link{
+            outline: none;
             img{
                 width:103px;
                 height: 40px;
             }
+        }
     } 
 }

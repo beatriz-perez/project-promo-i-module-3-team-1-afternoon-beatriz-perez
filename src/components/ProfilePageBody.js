@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FormList from './FormList';
-import CardPreview from './CardPreview';
+import FormList from './profilePageComponents/FormList';
+import CardPreview from './profilePageComponents/CardPreview';
 
 class ProfilePageBody extends React.Component {
   constructor(props) {
