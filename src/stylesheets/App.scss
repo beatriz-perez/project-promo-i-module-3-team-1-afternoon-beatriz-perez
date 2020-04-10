@@ -1,4 +1,24 @@
-
+// Reset, Variables y Mixins:
+@import './base/reset';
 @import './core/variables';
-@import './base/reset.scss';
 @import './core/mixins';
+
+// Estilos de elementos por secciones:
+@import './layout/Header';
+@import './layout/Footer';
+
+
+
+@import './layout/LandingPage';
+    @import './layout/LandingPageBody';
+
+
+
+@import './layout/ProfilePage';
+
+// ESTILOS GENERALES DE PÁGINA ---------------------------------------
+
+.App{
+    width: 100vw;
+  }
+  

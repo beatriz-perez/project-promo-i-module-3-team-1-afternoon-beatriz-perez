@@ -1,11 +1,9 @@
 import React from 'react';
-import CollapsableItem from './collapsables/CollapsableItem';
-import Design from './collapsables/Design';
-import Share from './collapsables/Share.js';
-import Fill from './collapsables/Fill';
 
-import '../stylesheets/ProfilePage.scss';
-
+import CollapsableItem from '../collapsables/CollapsableItem';
+import Design from '../collapsables/Design';
+import Share from '../collapsables/Share.js';
+import Fill from '../collapsables/Fill';
 
 class FormList extends React.Component {
 

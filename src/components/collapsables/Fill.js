@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../stylesheets/Fill.scss'
-import Avatar from '../Avatar';
+
+import Avatar from '../profilePageComponents/Avatar';
 
 class Fill extends React.Component{
     constructor(props){

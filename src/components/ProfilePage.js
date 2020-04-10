@@ -1,8 +1,8 @@
 import React from 'react';
-import '../stylesheets/ProfilePage.scss';
-import AllPageHeader from './AllPageHeader';
-import ProfilePageBody from './ProfilePageBody';
-import AllPageFooter from './AllPageFooter';
+
+import Header from './Header';
+import ProfilePageBody from './profilePageComponents/ProfilePageBody';
+import Footer from './Footer';
 
 
 class ProfilePage extends React.Component {
@@ -12,9 +12,9 @@ class ProfilePage extends React.Component {
     render() {
           return (
               <div id="profilePage" className="profilePage">
-                  <AllPageHeader></AllPageHeader>
+                  <Header/>
                   <ProfilePageBody></ProfilePageBody>
-                  <AllPageFooter></AllPageFooter>
+                  <Footer/>
               </div>
           );
     }

@@ -1,22 +1,22 @@
 import React from 'react';
-import '../stylesheets/LandingPage.scss';
+
 import LandingPageBody from './LandingPageBody';
-import AllPageFooter from './AllPageFooter';
+import Footer from './Footer';
 
 
 class LandingPage extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-    render() {
-          return (
-              <div id="landingPage" className="landingPage">
-                  <LandingPageBody></LandingPageBody>
-                  <AllPageFooter></AllPageFooter>
-              </div>
-          );
-    }
+  constructor(props) {
+    super(props);
   }
+  render() {
+    return (
+      <div id="landingPage" className="landingPage">
+        <LandingPageBody/>
+        <Footer/>
+      </div>
+    );
+  }
+}
 
 
 export default LandingPage;
