@@ -6,10 +6,8 @@ import Footer from './Footer';
 
 
 class ProfilePage extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-    render() {
+
+  render() {
           return (
               <div id="profilePage" className="profilePage">
                   <Header/>

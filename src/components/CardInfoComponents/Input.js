@@ -16,22 +16,18 @@ class Input extends React.Component {
                 <label className="inputLabel" htmlFor={this.props.name}>{this.props.label}</label>
 
                 <input
-                    className={this.props.inputStyle}
-                    id={this.props.name}
+                    className='inputBox'
+                    id={this.props.id || this.props.name} /*Nos interesará dar id especifico en radio inputs*/
                     type={this.props.type}
                     name={this.props.name}
                     placeholder={this.props.placeholder}
                     onChange={this.change}
                     value={this.props.value}
+                    checked={this.props.checked === true ? true : false}
                 />
-                <div class={`thumbnail ${this.props.inputStyle === 'fileButton' ? "" : "hidden"}`}></div>
             </React.Fragment>
         );
     }
-}
-
-Input.defaultProps = {
-    inputStyle: 'inputBox'
 }
 
 export default Input;

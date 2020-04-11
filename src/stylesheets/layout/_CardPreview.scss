@@ -27,19 +27,36 @@
             padding-top: 21px;
             padding-bottom: 12px;
             box-shadow: 0 1px 10px 0 $shadowColor;  
-            .card__profileInfo--box{
-                border-left: 5px solid $palete1Color2;
+            .previewProfileInfo{
                 width: 100%;
                 height: 42px;
                 padding-left: 15px;
                 margin-bottom: 10px;
-                .card__profileInfo--name{
+                &__1{
+                    border-left: 5px solid $palete1Color2;
+                }
+                &__2{
+                    border-left: 5px solid $palete2Color2;
+                }
+                &__3{
+                    border-left: 5px solid $palete3Color2;
+                }
+
+                .infoName{
                     font-family: $previewText;
                     font-weight: 700;
                     font-size: 18px;
                     line-height: 20px;
-                    color: $palete1Color1;
-                    margin-bottom: 2px;                
+                    margin-bottom: 2px;
+                    &__1{
+                        color: $palete1Color1;
+                    }
+                    &__2{
+                        color: $palete2Color1;
+                    }
+                    &__3{
+                        color: $palete3Color1;
+                    }                 
                 }
                 .card__profileInfo--job{
                     font-family: $previewText;
@@ -65,20 +82,38 @@
                 flex-direction: row;
                 justify-content: flex-start;
                 align-items: center;            
-                .card__socialbuttons--box{
+                .socialButtonBox{
                     display: inline-block;
                     position: relative;
                     width: 32px;
                     height: 32px;
                     border-radius: 50%;
-                    border: 2px solid $palete1Color3;
                     margin-right: 10px;
                     color: $palete1Color1;
-                    .icon {
-                      @include centerAll;
-                      font-size: 18px;
-                      color: $palete1Color1;
-                    }              
+                    &__1{
+                        border: 2px solid $palete1Color3;
+                        .icon {
+                            @include centerAll;
+                            font-size: 18px;
+                            color: $palete1Color1;
+                        }                    
+                    }
+                    &__2{
+                        border: 2px solid $palete2Color3;
+                        .icon {
+                            @include centerAll;
+                            font-size: 18px;
+                            color: $palete2Color1;
+                        }                    
+                    }
+                    &__3{
+                        border: 2px solid $palete3Color3;
+                        .icon {
+                            @include centerAll;
+                            font-size: 18px;
+                            color: $palete3Color1;
+                        }                    
+                    }                 
                 }
                 .hidden {
                     display: none;

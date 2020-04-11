@@ -6,9 +6,6 @@ import ProfilePage from './ProfilePage';
 import LandingPage from './LandingPage';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

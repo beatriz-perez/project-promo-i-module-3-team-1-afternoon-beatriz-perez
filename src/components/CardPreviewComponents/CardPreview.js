@@ -6,23 +6,24 @@ import PreviewAvatarBox from './PreviewAvatarBox.js';
 import PreviewSocialButtonList from './PreviewSocialButtonList.js';
 
 class CardPreview extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div id="cardPreview" className="cardPreview grid-2">
         <div id="cardPreview__centeredBox" className="cardPreview__centeredBox" >
-          <PreviewResetButton />
+          <PreviewResetButton action={this.props.resetFunction}/>
           <div id="card" className="card" >
-            <PreviewProfileInfo name={this.props.info.name} job={this.props.info.job}/>
-            <PreviewAvatarBox/>
+            <PreviewProfileInfo 
+              name={this.props.info.name} 
+              job={this.props.info.job} 
+              style={this.props.info.palette}/>
+            <PreviewAvatarBox fileInfo={this.props.info.image}/>
             <PreviewSocialButtonList 
               email={this.props.info.email} 
               phone={this.props.info.phone}
               linkedinuser={this.props.info.linkedin}
               githubuser={this.props.info.github}
+              style={this.props.info.palette}
             />
           </div>
         </div>

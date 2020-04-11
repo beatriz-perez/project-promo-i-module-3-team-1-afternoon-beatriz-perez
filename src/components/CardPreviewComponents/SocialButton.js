@@ -1,17 +1,19 @@
 import React from 'react';
 
 class SocialButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     render() {
         return (
-            <li id="socialButtonBox" className={`card__socialbuttons--box ${this.props.style}`}>
+            <li 
+                id="socialButtonBox" 
+                className={`socialButtonBox socialButtonBox__${this.props.style} ${this.props.visible}`}
+            >
                 <a 
                     id="emailButtonLink"
                     className="preview__socialButton preview__socialButton--email buttonStyle1"
                     href={this.props.destination} 
-                    target="_blank" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     title={this.props.name}
                 >
                     <i className={`icon ${this.props.iconType}`}></i>

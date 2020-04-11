@@ -7,6 +7,8 @@ class ProfilePageBody extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+    this.getLocalInfo = this.getLocalInfo.bind(this);
     this.state = {
       palette: '1',
       name: '',
@@ -17,24 +19,29 @@ class ProfilePageBody extends React.Component {
       linkedin: '',
       github: ''
     };
+    this.saved = {};
   }
 
-  componentDidMount(){
+  getLocalInfo(){
     const localInfo = JSON.parse(localStorage.getItem('localInfo'));
-    console.log('localinfo', localInfo);
+    console.log(localInfo)
   }
 
   handleChange(name, info) {
     this.setState({[name]: info });
-    console.log('aqui', this.state);
-    let localInfo = this.state;
-    localStorage.setItem('localInfo', JSON.stringify(localInfo));
+  }
+  handleReset() {
+    localStorage.clear();
+    this.forceUpdate();
   }
 
   render() {
+    this.getLocalInfo();
+    localStorage.setItem('localInfo', JSON.stringify(this.state));
+
     return (
       <div id="profilePageBody" className="profilePageBody">
-        <CardPreview info={this.state} />
+        <CardPreview info={this.state} resetFunction={this.handleReset}/>
         <FormList info={this.state} inputTask={this.handleChange} />
       </div>
     );
