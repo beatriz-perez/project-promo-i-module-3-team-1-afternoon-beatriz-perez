@@ -74,15 +74,16 @@
                     border: 2px solid $palete1Color3;
                     margin-right: 10px;
                     color: $palete1Color1;
-                    .hidden {
-                        display: none;
-                      }      
                     .icon {
                       @include centerAll;
                       font-size: 18px;
                       color: $palete1Color1;
                     }              
                 }
+                .hidden {
+                    display: none;
+                }      
+
             }
         }
     }

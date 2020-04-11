@@ -1,52 +1,88 @@
 import React from 'react';
-
-import CollapsableItem from '../collapsables/CollapsableItem';
-import Design from '../collapsables/Design';
-import Share from '../collapsables/Share.js';
-import Fill from '../collapsables/Fill';
+import Form from './Form';
+import Input from './Input';
 
 class FormList extends React.Component {
-
   constructor(props) {
     super(props);
     this.handleOpenForm = this.handleOpenForm.bind(this);
+    this.state={
+      openForm: '1'
+    }
   }
 
-  handleOpenForm() {
-
+  handleOpenForm(number) {
+    if (this.state.openForm === number) {
+      this.setState({
+        openForm: ''
+      })
+    } else {
+      this.setState({
+        openForm: number
+      })
+    }
   }
 
   render() {
-    console.log(this.props);
     return (
-      <div className="grid-1">
-        <ul id="formList" className="formList">
-          <CollapsableItem collapsableTitle='Diseña'
-                            handleCollapse={this.props.handleCollapse}
-                            id = 'collapse-1'
-                            activePanel = {this.props.activePanel}
-          >
-            <Design />
-          </CollapsableItem>
-        
-          <CollapsableItem collapsableTitle='Rellena'
-                            handleCollapse={this.props.handleCollapse}
-                            id = 'collapse-2'
-                            activePanel = {this.props.activePanel}
-          >
-            <Fill />
-          </CollapsableItem>
-
-        <CollapsableItem collapsableTitle='Comparte'
-                          handleCollapse={this.props.handleCollapse}
-                          id = 'collapse-3'
-                          activePanel = {this.props.activePanel}
+      <ul id="formList" className="formList grid-1">
+        <Form 
+          formNumber='1' 
+          open={this.state.openForm} 
+          name="diseña" 
+          icon="far fa-object-ungroup" 
+          buttonTask={this.handleOpenForm}
         >
-            <Share/> 
-        </CollapsableItem>
+          <Input type="radio" name="paletteOptions" inputTask={this.props.inputTask}/>
+        </Form>
 
-        </ul>
-      </div>
+        <Form 
+          formNumber='2' 
+          open={this.state.openForm}
+          name="rellena" icon="far fa-keyboard" 
+          buttonTask={this.handleOpenForm}
+        >
+          <form>
+            <Input 
+              type="text" 
+              name="name" 
+              label="Nombre completo *" 
+              placeholder="Ej. Sally Jill" 
+              inputTask={this.props.inputTask} 
+              value={this.props.info.name}/>
+            <Input 
+              type="text" 
+              name="job" 
+              label="Puesto *" 
+              placeholder="Ej. Front-End Unicorn" 
+              inputTask={this.props.inputTask} 
+              value={this.props.info.job}/>
+            <Input 
+              type="file" 
+              inputStyle="fileButton"
+              name="image" 
+              label="Imagen de perfil *" 
+              placeholder="Añadir imagen"
+              inputTask={this.props.inputTask}
+              value={this.props.info.image}
+            />
+            <Input type="text" name="email" label="Email *" placeholder="Ej: sally-hill@gmail.com" inputTask={this.props.inputTask} value={this.props.info.email}/>
+            <Input type="text" name="phone" label="Teléfono *" placeholder="Ej: 555-55-55-55" inputTask={this.props.inputTask} value={this.props.info.phone}/>
+            <Input type="text" name="linkedin" label="Linkedin *" placeholder="Ej: sally.hill" inputTask={this.props.inputTask} value={this.props.info.linkedin}/>
+            <Input type="text" name="github" label="Github *" placeholder="Ej: sally-hill" inputTask={this.props.inputTask} value={this.props.info.github}/>
+          </form>
+        </Form>
+
+        <Form 
+          formNumber='3'
+          open={this.state.openForm}
+          name="comparte" 
+          icon="fas fa-share-alt" 
+          buttonTask={this.handleOpenForm}
+        >
+          <Input/>
+        </Form>
+      </ul>
     );
   }
 }

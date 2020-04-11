@@ -6,8 +6,8 @@ class PreviewResetButton extends React.Component {
     }
     render() {
         return (
-            <button class="previewResetButton" href="#">
-                <i class="far fa-trash-alt"></i> reset
+            <button className="previewResetButton" href="#">
+                <i className="far fa-trash-alt"></i> reset
             </button>
         );
     }
