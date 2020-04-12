@@ -1,6 +1,9 @@
 .profilePageBody{
     width: 100%;
     height: auto;
+    ::-webkit-scrollbar {
+        display: none;
+    }
     @include forTablet{
         background: linear-gradient(to bottom, #f5f5f5, #ffffff 11%);
         height: calc(100vh - 170px);

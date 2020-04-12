@@ -4,25 +4,6 @@ import Input from './Input';
 import InputFile from './InputFile';
 
 class FormList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleOpenForm = this.handleOpenForm.bind(this);
-    this.state={
-      openForm: '1'
-    }
-  }
-
-  handleOpenForm(number) {
-    if (this.state.openForm === number) {
-      this.setState({
-        openForm: ''
-      })
-    } else {
-      this.setState({
-        openForm: number
-      })
-    }
-  }
 
   render() {
     return (
@@ -30,10 +11,10 @@ class FormList extends React.Component {
 
         <Form 
           formNumber='1' 
-          open={this.state.openForm} 
+          open={this.props.info.openForm} 
           name="diseña" 
           icon="far fa-object-ungroup" 
-          buttonTask={this.handleOpenForm}
+          buttonTask={this.props.formTask}
         >
           <form className="designForm">
             <p className="designForm__title">colores</p>
@@ -87,9 +68,9 @@ class FormList extends React.Component {
 
         <Form 
           formNumber='2' 
-          open={this.state.openForm}
+          open={this.props.info.openForm} 
           name="rellena" icon="far fa-keyboard" 
-          buttonTask={this.handleOpenForm}
+          buttonTask={this.props.formTask}
         >
           <form className="fillForm">
             <Input 
@@ -152,10 +133,10 @@ class FormList extends React.Component {
 
         <Form 
           formNumber='3'
-          open={this.state.openForm}
+          open={this.props.info.openForm} 
           name="comparte" 
           icon="fas fa-share-alt" 
-          buttonTask={this.handleOpenForm}
+          buttonTask={this.props.formTask}
         >
 
           <button id="createCardButton" type="button" className="createCardButton off">
