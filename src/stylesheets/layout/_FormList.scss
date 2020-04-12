@@ -151,9 +151,14 @@
         display: block;
         width: 100%;
         height: 30px;
-        border: 1px solid $borderColor;
         margin-bottom: 20px;
         padding-left: 10px;
+        &__right{
+            border: 1px solid $borderColor;
+        }
+        &__wrong{
+            border: 1px solid red;
+        }
     
     }
     ::placeholder{
@@ -194,7 +199,6 @@
 .createCardButton{
     height: 50px;
     width: 200px;
-    background-color: $secondaryColor;
     border-radius: 12px;
     color: #ffffff;
     font-size: 18px;
@@ -202,9 +206,60 @@
     text-transform: uppercase;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
     margin-left: calc(50% - 100px);
+    &__on{
+        cursor: pointer;
+        background-color: $secondaryColor;
+    }
+    &__off{
+        cursor: default;
+        background-color: lightgray;
+    }
     .icon{
         margin-right: 9px;
         font-size: 22px;
+    }
+}
+
+.URLcontainer{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    border-top: 1px solid $borderLineColor;
+    
+    .introText{
+        font-size: 18px;
+        color: $primaryColor;
+        font-family: $mainText;
+        margin-bottom: 5px;
+    }
+    .linkResponse{
+        font-size: 12px;
+        color: $secondaryColor;
+        font-family: $mainText;
+        margin-bottom: 13px;
+    }
+    .share-twitter-button{
+        width: 180px;
+        height: 30px;
+        display: inline-block;
+        margin: 0 auto;
+        background-color: #00a0f5;
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-family: $mainText;
+        font-weight: lighter;
+        border-radius: 3px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .fab{
+            margin-right: 5px;
+            font-size: $mainTitleSize;
+        }
     }
 }
 

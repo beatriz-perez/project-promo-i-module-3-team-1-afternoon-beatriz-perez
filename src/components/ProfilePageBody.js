@@ -9,6 +9,8 @@ class ProfilePageBody extends React.Component {
     this.handleOpenForm = this.handleOpenForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.createCard = this.createCard.bind(this);
+    this.showURL = this.showURL.bind(this);
     this.state = {
       openForm: '1',
       palette: '1',
@@ -18,7 +20,8 @@ class ProfilePageBody extends React.Component {
       email: '',
       phone: '',
       linkedin: '',
-      github: ''
+      github: '',
+      cardURL: ''
     };
     this.baseState = this.state;
   }
@@ -33,14 +36,10 @@ class ProfilePageBody extends React.Component {
 
   handleOpenForm(number) {
     if (this.state.openForm === number) {
-      this.setState({
-        openForm: ''
-      })
+      this.setState({ openForm: '' })
       localStorage.setItem('openForm', '');
     } else {
-      this.setState({
-        openForm: number
-      })
+      this.setState({ openForm: number })
       localStorage.setItem('openForm', number);
     }
   }
@@ -55,11 +54,46 @@ class ProfilePageBody extends React.Component {
     this.setState(this.baseState);
   }
 
+  createCard() {
+    let myJson = {
+      "palette": this.state.palette,
+      "name": this.state.name,
+      "job": this.state.job,
+      "phone": this.state.phone,
+      "email": this.state.email,
+      "linkedin": this.state.linkedin,
+      "github": this.state.github,
+      "photo": this.state.image
+    };
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+    method: 'POST',
+    body: JSON.stringify(myJson),
+    headers: {
+      'content-type': 'application/json'
+    },
+    })
+    .then(function(resp) { return resp.json(); })
+    .then((result)=> { this.showURL(result); })
+    .catch((error)=> { console.log(error); });
+  }
+
+  showURL(url) {
+    if (url.success === true) {
+      this.handleChange('cardURL', url.cardURL)
+    }
+  }
+
+
   render() {
     return (
       <div id="profilePageBody" className="profilePageBody">
         <CardPreview info={this.state} resetFunction={this.handleReset}/>
-        <FormList info={this.state} formTask={this.handleOpenForm} inputTask={this.handleChange}/>
+        <FormList 
+          info={this.state} 
+          formTask={this.handleOpenForm} 
+          inputTask={this.handleChange}
+          createButtonTask={this.createCard}
+        />
       </div>
     );
   }

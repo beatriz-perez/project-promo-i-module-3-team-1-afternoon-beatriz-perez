@@ -16,7 +16,7 @@ class Input extends React.Component {
                 <label className="inputLabel" htmlFor={this.props.name}>{this.props.label}</label>
 
                 <input
-                    className='inputBox'
+                    className={`inputBox inputBox__${this.props.value !== "" ? 'right' : 'wrong'}`}
                     id={this.props.id || this.props.name} /*Nos interesará dar id especifico en radio inputs*/
                     type={this.props.type}
                     name={this.props.name}
