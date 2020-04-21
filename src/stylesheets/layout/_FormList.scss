@@ -263,3 +263,35 @@
     }
 }
 
+.loaderContainer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid $borderLineColor;
+    
+    .unicorn-loader{
+        margin-left: calc(50% - 25px);
+        margin-bottom: 15px;
+        width: 50px;
+        animation: unicornDance 0.4s linear infinite alternate;
+    }
+    .introText{
+        font-size: 18px;
+        color: $primaryColor;
+        font-family: $mainText;
+        margin-bottom: 5px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@keyframes unicornDance {
+    0% {transform: rotate(-45deg);}
+    50%{transform: rotate(0deg) scale(1.2);}
+    100% {transform: rotate(45deg);}
+}
+
+.hidden{
+    display: none;
+}

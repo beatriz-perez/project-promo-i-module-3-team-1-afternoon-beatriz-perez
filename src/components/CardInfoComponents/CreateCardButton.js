@@ -12,7 +12,7 @@ class CreateCardButton extends React.Component {
         this.props.task();
     }
     showAlert() {
-        alert('Todos los campos de información deben estar completados antes de crear la tarjeta');
+        alert('Todos los campos de información deben estar completados antes de crear una tarjeta');
     }
 
     render() {

@@ -16,9 +16,6 @@ class InputFile extends React.Component {
         let myFile = event.currentTarget.files[0];
         const fr = new FileReader();
         fr.onloadend = () => {
-            this.setState({
-                pictureSrc: fr.result
-            });
             this.liftInfo('image', fr.result);
         }
         fr.readAsDataURL(myFile);

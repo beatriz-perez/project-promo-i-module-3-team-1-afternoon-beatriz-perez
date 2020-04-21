@@ -10,6 +10,7 @@ class ProfilePageBody extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.createCard = this.createCard.bind(this);
+    this.showLoader = this.showLoader.bind(this);
     this.showURL = this.showURL.bind(this);
     this.state = {
       openForm: '1',
@@ -21,6 +22,7 @@ class ProfilePageBody extends React.Component {
       phone: '',
       linkedin: '',
       github: '',
+      loading: false,
       cardURL: ''
     };
     this.baseState = this.state;
@@ -52,6 +54,7 @@ class ProfilePageBody extends React.Component {
   handleReset() {
     localStorage.clear();
     this.setState(this.baseState);
+    window.location.reload(false);
   }
 
   createCard() {
@@ -65,6 +68,7 @@ class ProfilePageBody extends React.Component {
       "github": this.state.github,
       "photo": this.state.image
     };
+    this.showLoader();
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
     method: 'POST',
     body: JSON.stringify(myJson),
@@ -77,9 +81,14 @@ class ProfilePageBody extends React.Component {
     .catch((error)=> { console.log(error); });
   }
 
+  showLoader() {
+    this.handleChange('loading', true);//------------->NEW
+  }
+
   showURL(url) {
     if (url.success === true) {
-      this.handleChange('cardURL', url.cardURL)
+      this.handleChange('loading', false);//------------------>NEW
+      this.handleChange('cardURL', url.cardURL);
     }
   }
 

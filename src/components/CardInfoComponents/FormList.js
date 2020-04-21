@@ -4,6 +4,8 @@ import Input from './Input';
 import InputFile from './InputFile';
 import CreateCardButton from './CreateCardButton';
 
+import UnicornsLogo from '../../images/logo-localUnicorns.png';
+
 class FormList extends React.Component {
 
   render() {
@@ -98,7 +100,7 @@ class FormList extends React.Component {
               fileInfo={this.props.info.image}
             />
             <Input
-              type="text"
+              type="email"
               name="email"
               label="Email *"
               placeholder="Ej: sally-hill@gmail.com"
@@ -106,7 +108,7 @@ class FormList extends React.Component {
               value={this.props.info.email}
             />
             <Input
-              type="text"
+              type="number"
               name="phone"
               label="Teléfono *"
               placeholder="Ej: 555-55-55-55"
@@ -143,7 +145,22 @@ class FormList extends React.Component {
           <CreateCardButton info={this.props.info} task={this.props.createButtonTask} />
 
           <div
-            className={`URLcontainer ${this.props.info.cardURL !== '' ? 'seen' : 'hidden'}`}
+            className={
+              `loaderContainer ${this.props.info.loading === true 
+              ? 'seen' 
+              : 'hidden'}`
+            }
+          >
+            <img className="unicorn-loader" src={UnicornsLogo} alt="logo-reactUnicorns-loader" />
+            <p className="introText">Creando una tarjeta nueva...</p>
+          </div>
+
+          <div
+            className={
+              `URLcontainer ${this.props.info.cardURL !== '' && this.props.info.loading !== true 
+              ? 'seen' 
+              : 'hidden'}`
+            }
           >
             <p className="introText">La tarjeta ha sido creada:</p>
             <p className="linkResponse">{this.props.info.cardURL}</p>
@@ -151,9 +168,9 @@ class FormList extends React.Component {
             <a 
               href={`https://twitter.com/intent/tweet?&text=Echa%20un%20vistazo%20a%20mi%20tarjeta%20de%20visita%2C%20hecha%20con%20%23AwesomeProfileCards%20versión%20React%3A%20${this.props.info.cardURL}&hashtags=Adalab%2C%20promoIdelisa`}
               target="_blank"
+              rel="noopener noreferrer"
               id="shareOnTwitter" 
               className="share-twitter-button" 
-              target="_blank"
             >
               <i className="fab fa-twitter"></i>
                 Compartir en Twitter
